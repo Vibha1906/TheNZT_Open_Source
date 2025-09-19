@@ -85,7 +85,8 @@ async def register_user_endpoint(reg: Registration):
 
         return {
             "otp_sent": True, 
-            "message": "Verification OTP generated (check backend logs). Please verify to complete registration."
+            "message": "Verification OTP generated (check backend logs). Please verify to complete registration.",
+            "OTP":otp
         }
 
     # Token exists but not verified
@@ -187,7 +188,8 @@ async def send_verification_otp(data: EmailVerificationRequest):
 
     return {
         "message": "Verification code has been generated (check backend logs)", 
-        "success": True
+        "success": True,
+        "OTP":otp
     }
 
 @router.post("/verify-otp")

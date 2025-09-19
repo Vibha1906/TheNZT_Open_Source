@@ -38,6 +38,7 @@ interface ApiConfig {
 interface OtpPasswordResetDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  OTP?:string
 }
 
 // Dialog stages
@@ -57,11 +58,11 @@ interface PasswordValidation {
   passwordsMatch: boolean;
 }
 
-export function OtpPasswordResetDialog({ open, onOpenChange }: OtpPasswordResetDialogProps) {
+export function OtpPasswordResetDialog({ open, onOpenChange,OTP }: OtpPasswordResetDialogProps) {
   // State management
   const [stage, setStage] = useState<DialogStage>(DialogStage.EMAIL);
   const [email, setEmail] = useState('');
-  const [otp, setOtp] = useState('');
+  const [otp, setOtp] = useState(OTP||"");
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -78,6 +79,7 @@ export function OtpPasswordResetDialog({ open, onOpenChange }: OtpPasswordResetD
     hasSpecialChar: false,
     passwordsMatch: false,
   });
+
 
   const timerIntervalRef = React.useRef<NodeJS.Timeout | null>(null);
 

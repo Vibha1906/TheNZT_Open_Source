@@ -28,19 +28,27 @@ interface OtpPasswordResetDialogProps {
   registerationData: IRegisterationData;
   onOpenChange: (open: boolean) => void;
   onVerificationSuccess: (token: string) => void;
+  OTP?:string;
 }
 
 const OTPDialog: React.FC<OtpPasswordResetDialogProps> = ({
   open,
   registerationData,
   onOpenChange,
+  OTP,
 }) => {
   const router = useRouter();
-  const [otp, setOtp] = useState('');
+  const [otp, setOtp] = useState(OTP||'');
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [resendLoading, setResendLoading] = useState(false);
   const [timer, setTimer] = useState(0);
+
+  useEffect(()=>{
+if(OTP){
+  setOtp(OTP)
+}
+  },[OTP])
 
   const resetForm = () => {
     setOtp('');
@@ -55,13 +63,12 @@ const OTPDialog: React.FC<OtpPasswordResetDialogProps> = ({
   const handleResendOtp = async () => {
     setResendLoading(true);
     try {
-      await axios.post(API_ENDPOINTS.SIGNUP, {
+      const response= await axios.post(API_ENDPOINTS.SIGNUP, {
         ...registerationData,
         full_name: registerationData.fullName,
       });
-      setOtp('');
+      setOtp(response?.data?.OTP);
       setTimer(30);
-      toast.success(`A 6-digit OTP has been sent to your email`);
     } catch (error: any) {
       setTimer(0);
       setErrors({ otp: error?.response?.data?.detail || 'Network Error, Please try again later' });

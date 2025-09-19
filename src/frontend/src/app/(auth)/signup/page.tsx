@@ -34,6 +34,7 @@ const SignupPage: React.FC = () => {
   const confirm = watch('confirmPassword', '');
 
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [otp, setOtp] = useState('');
 
 
   const [search, setSearch] = useState('');
@@ -103,7 +104,7 @@ const SignupPage: React.FC = () => {
         password
       );
       setOpenOTPDialog(true);
-      toast.success(`A 6-digit OTP has been sent to your email`);
+      setOtp(response?.data?.OTP)
     } catch (error: any) {
       toast.error(error?.response?.data.detail || 'Something went wrong. Please try again.');
     } finally {
@@ -399,12 +400,13 @@ const SignupPage: React.FC = () => {
         </div>
       </div>
 
-      {registerationData && (
+      {registerationData &&otp&& (
         <OTPDialog
           open={openOTPDialog}
           registerationData={registerationData}
           onOpenChange={setOpenOTPDialog}
           onVerificationSuccess={(token) => handleSuccessfulAuth(token)}
+          OTP={otp}
         />
       )}
     </div>
