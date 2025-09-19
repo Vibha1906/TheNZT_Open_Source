@@ -125,8 +125,8 @@ Before you begin, ensure you have the following installed on your system:
 #### 1. Clone the Repository
 
 ```bash
-git clone git@github.com:IAI-solution/insight_agent_new_opensource.git
-cd insight_agent_new_opensource
+git clone git@github.com:IAI-solution/TheNZT_Open_Source.git
+cd TheNZT_Open_Source
 ```
 
 #### 2. Environment Configuration
@@ -160,8 +160,40 @@ NEXT_PUBLIC_BASE_URL=http://localhost:8000
 ## 2.1 Configure External Services
 
 ### FMP 
+
+1. Go to [FMP](https://site.financialmodelingprep.com/) and log in (create a free account if you don't have one).
+
+2. Get the free API key.
+
+3. In the .env file, place the FMP API key.
+
+```
+FM_API_KEY=your_fmp_api_key_here
+```
+
 ### Tavily
+
+1. Go to [Tavily](https://www.tavily.com/) and log in (create a free account if you don't have one).
+
+2. Get the free API key.
+
+3. In the .env file, place the Tavily API key.
+
+```
+TAVILY_API_KEY=your_tavily_api_key_here
+```
+
 ### GEMINI
+
+1. Go to [Google AI Studio](https://aistudio.google.com/) and log in.
+
+2. Get the free API key.
+
+3. In the .env file, place the Tavily API key.
+
+```
+GEMINI_API_KEY=your_gemini_api_key_here
+```
 
 ### MongoDB (Database)
 
@@ -242,10 +274,10 @@ uv pip install -r requirements.txt
 
 ```bash
 # Run the FastAPI server with auto-reload
-uvicorn src.backend.app:app --reload --host 0.0.0.0 --port 8000
+uvicorn src.backend.app:app
 
 # Alternative: If you're already in src/backend directory
-uvicorn app:app --reload --host 0.0.0.0 --port 8000
+uvicorn app:app
 ```
 
 The backend will be available at [http://localhost:8000](http://localhost:8000)
