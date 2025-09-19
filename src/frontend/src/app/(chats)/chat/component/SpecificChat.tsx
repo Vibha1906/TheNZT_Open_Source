@@ -397,7 +397,7 @@ const SpecificChat = () => {
           newMessages[index].files = message.human_input.doc_ids;
         }
 
-        if (Object.keys(message.canvas_response).length !== 0) {
+        if (message.canvas_response&&Object.keys(message.canvas_response).length !== 0) {
           newMessages[index].canvas_response = {
             canvas_response_id: message.canvas_response.document_id,
             agent_name: 'deep-research-agent',
