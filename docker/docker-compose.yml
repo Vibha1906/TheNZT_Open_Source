@@ -1,0 +1,58 @@
+services:
+  
+  python-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: insight-agent
+    restart: always
+    env_file:
+    - ../.env
+    environment:
+      - PYTHONUNBUFFERED=1
+    platform: linux/amd64
+    ports:
+      - "8000:8000"
+    volumes:
+      - storage:/data
+    healthcheck:
+      test: ["CMD-SHELL", "bash", "-c", 'exec 3<>/dev/tcp/localhost/8000; echo -e "GET / HTTP/1.1\r\nHost: localhost\r\nConnection: close\r\n\r\n" >&3; cat <&3']
+      interval: 5s
+      timeout: 1s
+      retries: 3
+
+  mongodb:
+    image: mongo:8.0-noble
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin # Set the MongoDB root username
+      MONGO_INITDB_ROOT_PASSWORD: admin # Set the MongoDB root password
+    volumes:
+      - mongodb_data:/data/db # Persist MongoDB data
+    # healthcheck:
+    #   test: ["CMD-SHELL", "mongosh", "mongodb://admin:admin@localhost:27017/admin", "--eval", "db.runCommand({ ping: 1 })" ]
+    #   interval: 5s
+    #   timeout: 1s
+    #   retries: 3
+    # MONGO_URI="mongodb://admin:admin@mongodb:27017"
+
+  redis:
+    image: redis:7.0.0-alpine
+    restart: always
+    environment:
+      TZ: UTC # Sets the timezone
+    volumes:
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "no", "--save", "60", "1", "--loglevel", "warning", "--requirepass", "admin"]
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli", "-a", "admin", "ping"]
+      interval: 5s
+      timeout: 1s
+      retries: 3
+    # REDIS_BROKER_URL="redis://:admin@redis:6379"
+
+volumes:
+  mongodb_data: # Define the mongodb data volume
+  redis_data: # Define the redis data volume
+  qdrant_data: # Define the qdrant data volume
+  storage: # Define the storage volume

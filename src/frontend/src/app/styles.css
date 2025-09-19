@@ -1,0 +1,273 @@
+.unified-markdown-editor .ProseMirror {
+  outline: none;
+  color: #2e2e2e;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.625;
+  letter-spacing: 0.25;
+  font-family: var(--font-fustat);
+}
+
+/* Headings - Exact match with your renderer */
+.unified-markdown-editor h1 {
+  scroll-margin: 20px;
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.1; /* tracking-tight + defaults */
+  font-weight: 800; /* font-extrabold */
+  letter-spacing: -0.025em; /* tracking-tight */
+  color: #0a0a0a;
+  margin-top: 2rem; /* mt-8 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.unified-markdown-editor h1:first-child {
+  margin-top: 0;
+}
+
+.unified-markdown-editor h2 {
+  scroll-margin: 20px;
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 1.1;
+  font-weight: 600; /* font-semibold */
+  letter-spacing: -0.025em;
+  border-bottom: 1px solid #e8e5e1; /* border-b */
+  padding-bottom: 0.5rem; /* pb-2 */
+  color: #0a0a0a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.unified-markdown-editor h2:first-child {
+  margin-top: 0;
+}
+
+.unified-markdown-editor h3 {
+  scroll-margin: 20px;
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #0a0a0a;
+  margin-top: 1.5rem; /* mt-6 */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+.unified-markdown-editor h3:first-child {
+  margin-top: 0;
+}
+
+.unified-markdown-editor h4 {
+  scroll-margin: 20px;
+  font-size: 1rem; /* text-base */
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #0a0a0a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.unified-markdown-editor h4:first-child {
+  margin-top: 0;
+}
+
+.unified-markdown-editor p {
+  color: #0a0a0a;
+  margin: 0;
+}
+
+.unified-markdown-editor p:not(:first-child) {
+  margin-top: 1rem;
+}
+
+/* Text formatting - Exact match */
+.unified-markdown-editor strong {
+  font-weight: 600;
+  color: #0a0a0a;
+}
+
+.unified-markdown-editor em {
+  font-style: italic;
+}
+
+/* Inline code - EXACT match with your renderer */
+.unified-markdown-editor code {
+  position: relative;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: #e8e5e1;
+  color: #181818;
+  font-style: italic;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Code blocks - Exact match */
+.unified-markdown-editor pre {
+  background: #1f2937;
+  border-radius: 0.5rem;
+  color: #f9fafb;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+}
+
+.unified-markdown-editor pre code {
+  background: none;
+  color: inherit;
+  font-size: 0.8rem;
+  padding: 0;
+  font-style: normal;
+}
+
+/* Lists - EXACT match with your renderer */
+.unified-markdown-editor ul {
+  margin: 0.75rem 0;
+  margin-left: 0.75rem;
+  list-style-type: disc;
+  padding-left: 0.5rem;
+}
+
+.unified-markdown-editor ul li {
+  margin-top: 0.5rem;
+}
+
+.unified-markdown-editor ol {
+  margin: 0.75rem 0;
+  margin-left: 0.75rem;
+  list-style-type: decimal;
+  padding-left: 0.5rem;
+}
+
+.unified-markdown-editor ol li {
+  margin-top: 0.5rem;
+}
+
+/* Blockquotes - Exact match */
+.unified-markdown-editor blockquote {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 2px solid #d1d5db;
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+/* Links - EXACT match with your renderer */
+.unified-markdown-editor a {
+  display: inline-block;
+  width: fit-content;
+}
+
+.unified-markdown-editor a {
+  border: 1px solid #d2d2d2;
+  color: #6b7280;
+  border-radius: 60px;
+  font-size: 0.625rem;
+  padding: 0.125rem 0.5rem;
+  opacity: 0.9;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.unified-markdown-editor a:hover {
+  opacity: 1;
+  color: #0a0a0a;
+  cursor: pointer;
+}
+
+/* Tables - EXACT match with your renderer */
+
+.unified-markdown-editor .tableWrapper {
+  overflow-x: auto;
+}
+.unified-markdown-editor table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  color: #0a0a0a;
+  text-align: center;
+  border: 1px solid #d2d2d2 !important;
+  border-radius: 0.5rem;
+}
+
+.unified-markdown-editor table tbody {
+  border: 1px solid #d2d2d2 !important;
+  border-radius: 0.5rem;
+}
+
+.unified-markdown-editor table tbody tr:first-child {
+  background-color: #ece8e3;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.unified-markdown-editor table th,
+.unified-markdown-editor table td {
+  padding: 0.75rem 1rem;
+  border-right: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.unified-markdown-editor table th {
+  font-weight: 600;
+  color: #374151;
+  text-transform: none;
+}
+
+.unified-markdown-editor table tr:last-child td {
+  border-bottom: none;
+}
+/* Horizontal rules - Exact match */
+.unified-markdown-editor hr {
+  border: none;
+  border-top: 1px solid #e9e9e9;
+  margin: 2rem 0;
+}
+
+/* Images - Match your renderer */
+.unified-markdown-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+}
+
+/* Scrollbar styling */
+.unified-markdown-editor .ProseMirror {
+  scrollbar-width: thin;
+  scrollbar-color: #e8e5e1 transparent;
+}
+
+.unified-markdown-editor .ProseMirror::-webkit-scrollbar {
+  width: 6px;
+}
+
+.unified-markdown-editor .ProseMirror::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.unified-markdown-editor .ProseMirror::-webkit-scrollbar-thumb {
+  background-color: #e8e5e1;
+  border-radius: 3px;
+}
+
+/* Preview mode cursor */
+.unified-markdown-editor.pointer-events-none .ProseMirror {
+  cursor: default;
+}
+
+/* Focus states for edit mode */
+.unified-markdown-editor .ProseMirror:focus {
+  outline: none;
+}
+
+.ai-selection {
+  @apply bg-blue-500;
+}
+
+.tiptap.ProseMirror.unified-markdown-editor.prose.prose-sm.max-w-none.focus\:outline-none.min-h-\[300px\].p-4.sm\:pr-4.pr-2 {
+  padding-bottom: 14rem;
+}

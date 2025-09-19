@@ -1,0 +1,17 @@
+.azure-cmd/
+.dockerignore
+.git/
+.github/
+.gitignore
+.venv/
+.vscode/
+**/__pycache__/
+docker-compose.yml
+Dockerfile
+graph_logs/*
+Makefile
+out/
+README.md
+test/*
+TODO.txt
+.env

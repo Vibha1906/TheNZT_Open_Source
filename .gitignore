@@ -1,0 +1,58 @@
+# Ignore Chainlit directories
+.chainlit/
+
+# Ignore specific files
+.files/
+
+# Ignore agent prompts cache
+**/__pycache__/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+
+# Ignore environment files
+.env
+
+# Ignore logs files
+graph_logs/*
+
+chart_bot/cryptlist.json
+
+# Ignore test files
+test/*
+
+# Ignore venv
+.venv/
+venv/
+# Ignore .vscode
+.vscode/
+
+# Ignore Chrome-webdriver
+chromedriver-linux64/
+
+# Ignore public folder
+public/*
+
+external_data/*
+
+stock_data/
+
+out/
+data/
+
+crypto_data/crypto_price/
+
+TODO.txt
+
+# Ignore these files and folders (20 Aug 2025):
+
+selenium_driver/
+.env
+.azure-cmd/
+.github/
+nginx/
+pygments_style.css
+katex.min.css
