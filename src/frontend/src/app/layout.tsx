@@ -30,10 +30,17 @@ export default function RootLayout({
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const noSidebarPages = ['/login', '/signup', '/reset-password', '/onbording'];
+  const publicPages = ['/', '/docs', '/demo', '/api', '/contributing'];
 
   useEffect(() => {
     const checkAuth = async () => {
       setIsLoading(true);
+
+      // Skip auth check for public pages
+      if (publicPages.includes(pathname)) {
+        setIsLoading(false);
+        return;
+      }
 
       // Skip verification if already authenticated in store
       if (isAuthenticated && !noSidebarPages.includes(pathname)) {
@@ -68,7 +75,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <title>hiiiiiiiiiiiiiiiii</title>
+        <title>TheNZT - Multi-Agent Finance Query System</title>
       </Head>
       <body>
         {/* NextTopLoader should always be rendered */}
