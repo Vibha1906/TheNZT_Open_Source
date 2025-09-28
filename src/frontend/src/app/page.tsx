@@ -89,6 +89,14 @@ const LandingPage = () => {
               </div>
               <span className="text-xl font-bold text-slate-900">TheNZT</span>
             </div>
+            {/* Nav bar */}
+            <nav className="hidden md:flex items-center space-x-6 text-slate-700">
+              <button className="text-sm hover:text-slate-900" onClick={() => router.push('/chat')}>AI Chatbot</button>
+              <button className="text-sm hover:text-slate-900" onClick={() => router.push('/technical-analysis')}>Technical Analysis</button>
+              <button className="text-sm hover:text-slate-900" onClick={() => router.push('/indices')}>Indices</button>
+              <button className="text-sm hover:text-slate-900" onClick={() => router.push('/forex-analysis')}>Forex Analysis</button>
+              <button className="text-sm hover:text-slate-900" onClick={() => router.push('/subscription')}>Subscription</button>
+            </nav>
             <div className="flex items-center space-x-4">
               <Button variant="ghost" onClick={() => router.push('/login')}>
                 Sign In

@@ -274,7 +274,7 @@ const StockChart2: React.FC<StockChartProps> = ({
             }}
           />
 
-          <YAxis
+          <yAxis
             yAxisId="left"
             domain={[minY, maxY + step]}
             axisLine={false}

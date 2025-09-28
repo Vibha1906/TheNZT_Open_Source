@@ -30,7 +30,19 @@ export default function RootLayout({
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   const noSidebarPages = ['/login', '/signup', '/reset-password', '/onbording'];
-  const publicPages = ['/', '/docs', '/demo', '/api', '/contributing'];
+  const publicPages = [
+    '/',
+    '/docs',
+    '/demo',
+    '/api',
+    '/contributing',
+    '/technical-analysis',
+    '/chat',
+    '/market-analysis',
+    '/indices',
+    '/forex-analysis',
+    '/subscription',
+  ];
 
   useEffect(() => {
     const checkAuth = async () => {

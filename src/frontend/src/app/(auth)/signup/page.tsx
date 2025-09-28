@@ -396,6 +396,11 @@ const SignupPage: React.FC = () => {
                 Log in
               </Link>
             </p>
+            <p className="text-neutral-150 mt-2">
+              <Link href="/" className="font-medium text-[#4B9770] hover:text-[#408160]">
+                ← Back to Home
+              </Link>
+            </p>
           </div>
         </div>
       </div>

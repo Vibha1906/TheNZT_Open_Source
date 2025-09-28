@@ -1,15 +1,17 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import {
-  ChevronDown,
-  ChevronUp,
-  Ellipsis,
-  EllipsisVertical,
-  PanelRightClose,
-  Plus,
-  Settings,
-} from 'lucide-react';
+  import {
+    ChevronDown,
+    ChevronUp,
+    Ellipsis,
+    EllipsisVertical,
+    PanelRightClose,
+    Plus,
+    Settings,
+    LineChart,
+    TrendingUp,
+  } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
@@ -391,6 +393,18 @@ const SidebarContent: React.FC<SidebarContentProps> = ({
             </Link>
           </div>
 
+          {/* Technical Analysis Button */}
+          <div className="mt-4 px-6">
+            <Link
+              href="/technical-analysis"
+              onClick={() => setIsMobileSidebarOpen(false)}
+              className="flex items-center justify-center w-full self-stretch rounded-[10px] bg-[#102822] py-3 px-2 gap-2 text-white text-base font-medium transition-colors capitalize not-italic leading-normal hover:bg-[#163a2f]"
+            >
+              <LineChart className="text-white size-5 aspect-square" />
+              <span>Technical Analysis</span>
+            </Link>
+          </div>
+
           <div className="my-6 flex items-center justify-between text-black px-6">
             <div className="flex items-center gap-x-1">
               <Image src="/icons/thread_icon.svg" alt="thread" height={20} width={20} />
@@ -543,38 +557,21 @@ const SidebarContent: React.FC<SidebarContentProps> = ({
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
-        </div>
-
-        <div className="flex-grow overflow-y-auto scrollbar-hide">
-          {/* <div className="flex flex-col items-center">
-            {images.map((image) => (
-              <button
-                onClick={() => setActiveMenu(image.id)}
-                key={image.id}
-                className={cn("w-full py-3 flex items-center justify-center", {
-                 "border-r-2 border-primary-main": activeMenu === image.id,
-                })}
-              >
-               
-
-                {
-                  <Image
-                    src={image.src}
-                    alt={image.src}
-                    height={28}
-                    width={28}
-                  />
-                
-                }
-              </button>
-            ))}
-          </div> */}
+          {/* Technical Analysis (collapsed, compact but labeled) */}
+          <div className="mt-4 w-full px-4">
+            <Link
+              href="/technical-analysis"
+              className="w-full flex items-center justify-center gap-2 rounded-full bg-[#26443A] px-3 py-2 text-white text-xs hover:bg-[#2e5447]"
+            >
+              <LineChart className="size-4 text-white" />
+              <span className="truncate">Technical Analysis</span>
+            </Link>
+          </div>
         </div>
 
         <div className="mt-auto">
           <div className="flex flex-col items-center">
             <AccountDropdown
-              ref={dropdownRef}
               items={accountMenuItems}
               triggerElement={
                 <div className="bg-[rgba(127,178,157,0.1)] cursor-pointer w-[2.625rem] rounded-lg flex flex-col items-center">
